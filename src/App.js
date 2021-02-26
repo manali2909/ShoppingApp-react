@@ -48,7 +48,7 @@ function App() {
             <div>
                 <Navbar totalItems={cart.total_items}/>
                 <Switch>
-                    <Route exact path='/'>
+                    <Route path='/ShoppingApp-react'>
                         <Products products={products} onAddToCart={handleAddToCart}/>
                     </Route>
                     <Route exact path ='/cart'>
