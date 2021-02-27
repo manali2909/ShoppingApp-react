@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {commerce} from './lib/commerce';
 import {Products,Navbar,Cart,SingleProduct} from './components';
-import {BrowserRouter as Router ,Switch,Route} from 'react-router-dom';
+import {BrowserRouter as Router ,Switch,Route,Redirect} from 'react-router-dom';
 import {Backdrop,CircularProgress} from '@material-ui/core';
 function App() {
     const [products , setProducts] =useState([]);
@@ -41,6 +41,7 @@ function App() {
     useEffect(() => {
         fetchProduct();
         fetchCart();
+        
     }, [])
     
     return (
@@ -48,8 +49,9 @@ function App() {
             <div>
                 <Navbar totalItems={cart.total_items}/>
                 <Switch>
+                    
                     <Route exact path='/home'>
-                        <Products products={products} onAddToCart={handleAddToCart}/>
+                         <Products products={products} onAddToCart={handleAddToCart}/>
                     </Route>
                     <Route exact path ='/cart'>
                         <Cart 
@@ -60,6 +62,9 @@ function App() {
                         />
                     </Route>
                     <Route path='/products/:id' exact component={SingleProduct}/>
+                    <Route path='/'>
+                        <Redirect to="/home" />
+                    </Route>
                 </Switch>
                 
                   </div>
