@@ -13,7 +13,7 @@ function Navbar( {totalItems} ) {
         <>
         <AppBar position="fixed" className={classes.appBar} color="inherit">
             <Toolbar>
-                <Typography component={Link} to='/' variant="h6" className={classes.title} color="inherit">
+                <Typography component={Link} to='/home' variant="h6" className={classes.title} color="inherit">
                     <img src={logo} atl="icon" height="30px" width='30px' className={classes.image}/>
                     The Plant Store
                 </Typography>
